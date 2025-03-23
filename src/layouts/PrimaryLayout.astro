@@ -1,4 +1,6 @@
 ---
+import Header from '../components/Header.astro';
+import '../style.css';
 const {title = 'TomDcoding Blog' } = Astro.props;
 ---
 <!DOCTYPE html>
@@ -11,7 +13,7 @@ const {title = 'TomDcoding Blog' } = Astro.props;
   <title>{title}</title>
 </head>
 <body>
-    <h1>{title}</h1>
+    <Header />
     <slot />
 </body>
 </html>
