@@ -80,6 +80,13 @@ body {
   font-family: var(--ff-base);
 }
 
+main,
+section,
+header,
+footer {
+  container-type: inline-size;
+}
+
 .base-layout {
   --max-width: 1180px;
   --padding: 1rem;
@@ -99,6 +106,21 @@ body {
     }
 }
 
+/* TODO: Change the name of the selector */
+.three-columns {
+  display: grid;
+  grid-template-columns: grid;
+  gap: 1rem;
+
+  @container (width > 900px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.inverted {
+  background: black;
+  color: white;
+}
 .visually-hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
