@@ -13,7 +13,9 @@
         <img src="/images/logo.svg" alt="Coding Wanderer logo" />
     </a>
     <button aria-controls="primary-nav" aria-expanded="false"> <!-- TODO: check it out -->
-        <span>Menu</span>
+        <span class="visually-hidden">Menu</span>
+        <img class="icon-hamburger" src="/images/icon-menu.svg" alt="">
+        <img class="icon-close" src="/images/icon-menu-close.svg" alt="">
     </button>
     <nav>
         <ul>
@@ -60,16 +62,40 @@
         display: none;
         position: absolute;
         z-index: 10;
-        right: 0;
+        right: 1rem;
     }
 
     @media (width < 750px) {
 
         button {
             display: block;
+            position: absolute;
+            z-index: 10;
+            right: 1rem;
+            padding: 1rem;
+            background: transparent;
+            border: 0;
         }
+
         nav {
             display: none;
+        }
+
+        
+        [aria-expanded='false'] {
+            .icon-close {
+                display: none;
+            }
+        }
+
+        [aria-expanded='true'] {
+            .icon-hamburger {
+                display: none;
+            }
+            
+            .icon-close {
+                display-block;
+            }
         }
 
         [aria-expanded='true'] + nav {
