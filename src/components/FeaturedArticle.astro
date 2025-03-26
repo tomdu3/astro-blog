@@ -1,4 +1,9 @@
-<div class='featured-article-container'>
+---
+import { callSafely } from "astro:actions";
+
+const { class: className } = Astro.props; // linking className to the class prop
+---
+<div class:list={[className, 'featured-article-container']}>
   <h2 class='visually-hidden'>Featured Article</h2>
   <article>
     <img src='/images/image-web-3-desktop.jpg' alt='Featured article' />

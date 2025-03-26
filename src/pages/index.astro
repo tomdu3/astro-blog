@@ -5,7 +5,8 @@ import FeaturedArticle from '../components/FeaturedArticle.astro'
 ---
 <PrimaryLayout>
   <div class="three-columns">
-    <FeaturedArticle />
+    <!-- We can add classes here because we have defined these props in the component -->
+    <FeaturedArticle class="span-2"/>  
     <div class="inverted">
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus voluptatem temporibus ipsam, in laboriosam quas facere quasi, consequatur pariatur a sed obcaecati itaque velit repellendus! Quisquam animi mollitia facere laudantium.</p>
     </div>
