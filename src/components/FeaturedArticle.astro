@@ -1,0 +1,44 @@
+<div class='featured-article-container'>
+  <h2 class='visually-hidden'>Featured Article</h2>
+  <article>
+    <img src='/images/image-web-3-desktop.jpg' alt='Featured article' />
+    <h3>The Brigth Future of Web 3.0?</h3>
+    <div class="flow">
+      <p>
+        Web 3.0 is poised to revolutionize the internet as we know it, ushering
+        in an era of decentralization, user empowerment, and enhanced data
+        privacy. With blockchain technology at its core, Web 3.0 promises to
+        shift control from centralized entities to individual users, fostering a
+        more democratic and transparent online experience.
+      </p>
+      <a href='#' class='button'>
+        Read more <span class='visually-hidden'
+          >about The Brigth Future of Web 3.0?</span
+        >
+      </a>
+    </div>
+  </article>
+</div>
+
+<style>
+  .featured-article-container {
+    container-type: inline-size;
+  }
+  article {
+    display: grid;
+    gap: 1rem;
+    /* container query */
+    @container (width > 600px) {
+        gap: 2rem;
+        grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  img {
+    grid-column: 1 / -1;
+  }
+
+  h3 {
+    font-size: var(--fs-900);
+  }
+</style>
