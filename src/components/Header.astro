@@ -1,4 +1,5 @@
 <header>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
     <h1 class="visually-hidden">TomDcoding Blog</h1>
     <a href="/" class="logo">
         <img src="/images/logo.svg" alt="Coding Wanderer logo" />
@@ -21,7 +22,10 @@
         align-items: center;
         padding: 1rem;
         background-color: #f3f4f6;
-    }
+        margin-block: /** TODO: check this out */
+            clamp(1.5rem, 5vmax, 5rem)
+            clamp(1.5rem, 5vmin, 2rem);
+    }       
     ul {
         list-style: none;
         padding: 0;
@@ -40,4 +44,19 @@
             color: var(--clr-accent-400);
         }
     }
+
+    .skip-to-main {  /** TODO: Check it out */
+        position: absolute;
+        font-weight: var(--fw-bold);
+        padding: 1em 3em;
+        translate: -200%;
+
+        &:hover,
+        &:focus-visible {
+            background-color: var(--clr-accent-400);
+            color: var(--clr-neutral-900);
+            translate: 0;
+        }
+    }
+
 </style>

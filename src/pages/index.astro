@@ -1,19 +1,37 @@
 ---
-import '../style.css'
-import PrimaryLayout from '../layouts/PrimaryLayout.astro'
-import FeaturedArticle from '../components/FeaturedArticle.astro'
+import "../style.css";
+import PrimaryLayout from "../layouts/PrimaryLayout.astro";
+import FeaturedArticle from "../components/FeaturedArticle.astro";
+import PopularArticles from "../components/PopularArticles.astro";
 ---
+
 <PrimaryLayout>
-  <div class="three-columns">
+  <div class='three-columns section'>
     <!-- We can add classes here because we have defined these props in the component -->
-    <FeaturedArticle class="span-2"/>  
-    <div class="inverted">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus voluptatem temporibus ipsam, in laboriosam quas facere quasi, consequatur pariatur a sed obcaecati itaque velit repellendus! Quisquam animi mollitia facere laudantium.</p>
+    <FeaturedArticle class='span-2' />
+    <div class='inverted flow'>
+      <h2 class="accent-color">New</h2>
+      <ul role="list" class="separated-list">
+        <li>
+          <article class="flow">
+            <h3><a href="#">Article 1</a></h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat officia,</p>
+          </article>
+        </li>
+        <li>
+          <article class="flow">
+            <h3><a href="#">Article 2</a></h3>
+            <p>Culpa, minus ducimus dolorum explicabo temporibus amet natus eaque</p>
+          </article>
+        </li>
+        <li>
+          <article class="flow">
+            <h3><a href="#">Article 3</a></h3>
+            <p>Tempora in veniam consequatur tempore doloribus repellendus, cumque laboriosam</p>
+          </article>
+        </li>
+      </ul>
     </div>
-</div>
-  <!-- three-cols -->
-    <!-- Featured Article -->
-    <!-- New Articles -->
-  <!-- three-cols -->
-    <!-- Popular Articles -->
+  </div>
+  <PopularArticles class="three-columns section"/>
 </PrimaryLayout>
