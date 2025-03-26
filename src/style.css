@@ -90,12 +90,11 @@ body {
   font-family: var(--ff-base);
 }
 
+/* also generally for header, footer */
 main,
-section,
-header,
-footer {
+section {
   container-type: inline-size;
-}
+} 
 
 .base-layout {
   --max-width: 1180px;

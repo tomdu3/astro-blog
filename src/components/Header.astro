@@ -1,9 +1,20 @@
+<script>
+    const navToggle = document.querySelector("[aria-controls='primary-nav']")
+    navToggle?.addEventListener('click', () => {
+        const navOpened = navToggle.getAttribute('aria-expanded');
+        navToggle.setAttribute('aria-expanded', (navOpened === 'false') ? 'true': 'false');
+    })
+</script>
+
 <header>
     <a href="#main-content" class="skip-to-main">Skip to main content</a>
     <h1 class="visually-hidden">TomDcoding Blog</h1>
     <a href="/" class="logo">
         <img src="/images/logo.svg" alt="Coding Wanderer logo" />
     </a>
+    <button aria-controls="primary-nav" aria-expanded="false"> <!-- TODO: check it out -->
+        <span>Menu</span>
+    </button>
     <nav>
         <ul>
             <li><a href="/">Home</a></li>
@@ -42,6 +53,50 @@
         &:hover, &:focus-visible {
             text-decoration: underline;
             color: var(--clr-accent-400);
+        }
+    }
+
+    button {
+        display: none;
+        position: absolute;
+        z-index: 10;
+        right: 0;
+    }
+
+    @media (width < 750px) {
+
+        button {
+            display: block;
+        }
+        nav {
+            display: none;
+        }
+
+        [aria-expanded='true'] + nav {
+            display: block;
+            position: absolute;
+            inset: 0;
+            width: 80%;
+            margin-left: auto;
+            z-index: 1;
+            background-color: var(--clr-neutral-100);
+            box-shadow: 0 0 100vmax hsl(0 0 0 / 0.2);
+
+            ul {
+                margin-top: 20vh;
+                margin-left: 3rem;
+                display: grid;
+                gap: 2rem;
+                font-size: var(--fs-600);
+            }
+
+            a {
+                color: var(--clr-neutral-900);
+                &:hover,
+                &:focus-visible {
+                    color: var(--clr-accent-400);
+                }
+            }
         }
     }
 
