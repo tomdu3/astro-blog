@@ -28,9 +28,12 @@ function truncateText(text, maxLength) {
           newArticles.map((article) => (
             <li>
               <article class="flow">
-                <h3><a href="#">{article.title}</a></h3>
+                <h3><a href={`/article/${article.slug}`}>{article.title}</a></h3>
                 {/* limit content to 150 characters */}
                 <p>{truncateText(article.content, 150)}</p>
+                {/**
+                 * <p class="truncate" style="max--lines: 3">{article.content}</p>
+                 */}
               </article>
             </li>
           ))
