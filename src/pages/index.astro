@@ -3,6 +3,10 @@ import "../style.css";
 import PrimaryLayout from "../layouts/PrimaryLayout.astro";
 import FeaturedArticle from "../components/FeaturedArticle.astro";
 import PopularArticles from "../components/PopularArticles.astro";
+
+import fetchArticles from "../lib/fetchArticles";
+const articles = await fetchArticles();
+console.log(articles);
 ---
 
 <PrimaryLayout>

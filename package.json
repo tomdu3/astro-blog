@@ -9,6 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@wix/data": "^1.0.213",
+    "@wix/sdk": "^1.15.15",
     "astro": "^5.5.4"
   }
 }
