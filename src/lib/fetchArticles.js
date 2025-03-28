@@ -9,7 +9,7 @@ const WixClient = createClient({
 });
 
 export default async function fetchArticles({
-    count=null,
+    count=0,
     featured=false
 } = {}
     ) {
