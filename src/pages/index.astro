@@ -5,8 +5,12 @@ import FeaturedArticle from "../components/FeaturedArticle.astro";
 import PopularArticles from "../components/PopularArticles.astro";
 
 import fetchArticles from "../lib/fetchArticles";
-const articles = await fetchArticles();
-console.log(articles);
+const articles = await fetchArticles({count: 3, featured: true});
+
+console.log(articles.length)
+
+const firstArticle=articles[0]
+
 ---
 
 <PrimaryLayout>
@@ -38,4 +42,9 @@ console.log(articles);
     </div>
   </div>
   <PopularArticles class="three-columns section"/>
+
+  <div>
+    <h2>{firstArticle.title}</h2>
+  </div>
+    <p>{firstArticle.content}</p>
 </PrimaryLayout>

@@ -1,20 +1,20 @@
 ---
 import { callSafely } from "astro:actions";
+import fetchArticles from "../lib/fetchArticles";
 
 const { class: className } = Astro.props; // linking className to the class prop
+
+const featuredArticles = await fetchArticles({count: 1, featured: true})
+const featuredArticle = featuredArticles[0]
 ---
 <div class:list={[className, 'featured-article-container']}>
   <h2 class='visually-hidden'>Featured Article</h2>
   <article>
     <img src='/images/image-web-3-desktop.jpg' alt='Featured article' />
-    <h3>The Brigth Future of Web 3.0?</h3>
+    <h3>{featuredArticle.title}</h3>
     <div class="flow">
       <p>
-        Web 3.0 is poised to revolutionize the internet as we know it, ushering
-        in an era of decentralization, user empowerment, and enhanced data
-        privacy. With blockchain technology at its core, Web 3.0 promises to
-        shift control from centralized entities to individual users, fostering a
-        more democratic and transparent online experience.
+        {featuredArticle.content}
       </p>
       <a href='#' class='button'>
         Read more <span class='visually-hidden'
