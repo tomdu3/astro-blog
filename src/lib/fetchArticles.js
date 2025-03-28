@@ -8,9 +8,21 @@ const WixClient = createClient({
     }),
 });
 
-export default async function fetchArticles() {
+export default async function fetchArticles({
+    count=null,
+    featured=false
+} = {}
+    ) {
     let query = WixClient.items.query('Articles');
     
+    if (count) {
+        query = query.limit(count);
+    }
+
+    if (featured) {
+        query = query.eq('featured', true)
+    }
+
     const articles = await query.find()
     return articles.items;
 }
