@@ -10,13 +10,19 @@ const WixClient = createClient({
 
 export default async function fetchArticles({
     count=0,
-    featured=false
+    featured=false,
+    tags = [],
 } = {}
     ) {
     let query = WixClient.items.query('Articles');
     
     if (count) {
         query = query.limit(count);
+    }
+
+    // TODO: implement this in the db
+    if (tags.length) {
+        query = query.in('tags', tags);
     }
 
     if (featured) {
