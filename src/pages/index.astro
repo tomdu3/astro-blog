@@ -5,11 +5,15 @@ import FeaturedArticle from "../components/FeaturedArticle.astro";
 import PopularArticles from "../components/PopularArticles.astro";
 
 import fetchArticles from "../lib/fetchArticles";
-const articles = await fetchArticles({count: 3, featured: true});
+const newArticles = await fetchArticles({count: 3});
 
-console.log(articles.length)
-
-const firstArticle=articles[0]
+// limit new articles contents
+function truncateText(text, maxLength) {
+  if (text.length > maxLength) {
+    return text.substring(0, text.lastIndexOf(' ', maxLength)) + '...';
+  }
+  return text;
+}
 
 ---
 
@@ -20,31 +24,19 @@ const firstArticle=articles[0]
     <div class='inverted flow'>
       <h2 class="accent-color">New</h2>
       <ul role="list" class="separated-list">
-        <li>
-          <article class="flow">
-            <h3><a href="#">Article 1</a></h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat officia,</p>
-          </article>
-        </li>
-        <li>
-          <article class="flow">
-            <h3><a href="#">Article 2</a></h3>
-            <p>Culpa, minus ducimus dolorum explicabo temporibus amet natus eaque</p>
-          </article>
-        </li>
-        <li>
-          <article class="flow">
-            <h3><a href="#">Article 3</a></h3>
-            <p>Tempora in veniam consequatur tempore doloribus repellendus, cumque laboriosam</p>
-          </article>
-        </li>
+        {
+          newArticles.map((article) => (
+            <li>
+              <article class="flow">
+                <h3><a href="#">{article.title}</a></h3>
+                {/* limit content to 150 characters */}
+                <p>{truncateText(article.content, 150)}</p>
+              </article>
+            </li>
+          ))
+        }
       </ul>
     </div>
   </div>
   <PopularArticles class="three-columns section"/>
-
-  <div>
-    <h2>{firstArticle.title}</h2>
-  </div>
-    <p>{firstArticle.content}</p>
 </PrimaryLayout>
