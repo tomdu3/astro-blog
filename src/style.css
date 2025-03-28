@@ -147,15 +147,16 @@ section {
   }
 
   /* Alternative truncating  */
-  .truncate-text {
+  .truncate {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 1;
+    -webkit-line-clamp: var(--max-lines, 3);
     -webkit-box-orient: vertical;
-    line-clamp: 1;
+    line-clamp: var(--max-lines, 3);
   }
 }
+
 .inverted {
   --clr-heading: var(--clr-neutral-100);
   --clr-body: var(--clr-neutral-200);
