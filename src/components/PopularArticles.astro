@@ -29,6 +29,12 @@ const articles = await fetchArticles({count: 3})
         gap: 1rem;
         grid-template-columns: 100px auto;
 
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
         > div {
             displa: grid;
             gap: .25rem;
