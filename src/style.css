@@ -145,6 +145,16 @@ section {
       hsl(from var(--clr-body) h s l / 0.4);  /** TODO: check it out */
     margin-block: 1.5rem;
   }
+
+  /* Alternative truncating  */
+  .truncate-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    line-clamp: 1;
+  }
 }
 .inverted {
   --clr-heading: var(--clr-neutral-100);
