@@ -1,5 +1,7 @@
 # Astro Blog Project
 
+
+
 ```sh
 npm create astro@latest -- --template basics
 ```
