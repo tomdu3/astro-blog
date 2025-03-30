@@ -10,7 +10,7 @@
     <a href="#main-content" class="skip-to-main">Skip to main content</a>
     <h1 class="visually-hidden">TomDcoding Blog</h1>
     <a href="/" class="logo">
-        <img src="/images/logo.svg" alt="Coding Wanderer logo" />
+        <img src="/images/tomdcoding-logo.png" alt="TomDcoding logo" />
     </a>
     <button aria-controls="primary-nav" aria-expanded="false"> <!-- TODO: check it out -->
         <span class="visually-hidden">Menu</span>
@@ -38,6 +38,15 @@
         margin-block: /** TODO: check this out */
             clamp(1.5rem, 5vmax, 5rem)
             clamp(1.5rem, 5vmin, 2rem);
+        
+        .logo {
+        width: 90px;
+        }
+        @media (width < 750px) {
+            .logo{
+                width: 70px;
+            }
+        }
     }       
     ul {
         list-style: none;
@@ -139,5 +148,4 @@
             translate: 0;
         }
     }
-
 </style>
